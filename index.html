@@ -11,17 +11,18 @@
   <meta property="og:image" content="assets/sathish-headshot.png">
   <style>
     :root {
-      --ink: #16202a;
-      --muted: #5d6770;
-      --line: rgba(22, 32, 42, 0.12);
-      --paper: #f7f8f4;
-      --panel: #ffffff;
-      --navy: #102d43;
-      --teal: #0f766e;
-      --gold: #bf7a25;
-      --sage: #dfe7dc;
-      --sky: #d7e5ee;
-      --shadow: 0 18px 48px rgba(21, 33, 43, 0.13);
+      --ink: #171a1f;
+      --muted: #69717b;
+      --line: rgba(23, 26, 31, 0.14);
+      --paper: #f4f1ea;
+      --panel: #fffdfa;
+      --navy: #19283c;
+      --teal: #087f7a;
+      --gold: #d99a2b;
+      --coral: #c94e3f;
+      --sage: #dbe5d5;
+      --sky: #dbeaf2;
+      --shadow: 0 22px 60px rgba(24, 29, 36, 0.18);
       --radius: 8px;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --serif: Georgia, "Times New Roman", serif;
@@ -37,7 +38,10 @@
 
     body {
       margin: 0;
-      background: var(--paper);
+      background:
+        linear-gradient(90deg, rgba(8, 127, 122, 0.08) 0 1px, transparent 1px 100%),
+        linear-gradient(180deg, #fbf7ef, var(--paper) 38%, #eceff0);
+      background-size: 80px 100%, auto;
       color: var(--ink);
       font-family: var(--sans);
       line-height: 1.6;
@@ -57,9 +61,10 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      border-bottom: 1px solid var(--line);
-      background: rgba(247, 248, 244, 0.88);
-      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(25, 40, 60, 0.92);
+      color: #fffdfa;
+      backdrop-filter: blur(16px);
     }
 
     .nav {
@@ -83,7 +88,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      color: var(--muted);
+      color: rgba(255, 253, 250, 0.72);
       font-size: 0.94rem;
     }
 
@@ -93,33 +98,47 @@
     }
 
     .nav-links a:hover {
-      color: var(--ink);
+      color: white;
       border-bottom-color: var(--gold);
     }
 
     .hero {
       min-height: calc(100vh - 68px);
       display: grid;
-      grid-template-columns: minmax(0, 1.03fr) minmax(340px, 0.97fr);
+      grid-template-columns: minmax(0, 0.98fr) minmax(360px, 1.02fr);
       align-items: stretch;
-      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(25, 40, 60, 0.16);
       background:
-        linear-gradient(90deg, rgba(215, 229, 238, 0.66), rgba(247, 248, 244, 0) 46%),
-        linear-gradient(180deg, #fbfcf8, #eef3ed);
+        linear-gradient(135deg, rgba(25, 40, 60, 0.98) 0%, rgba(25, 40, 60, 0.96) 44%, rgba(219, 234, 242, 0.76) 44.2%, rgba(244, 241, 234, 0.9) 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: max(24px, calc((100vw - 1120px) / 2));
+      top: 88px;
+      width: 112px;
+      height: 10px;
+      background: linear-gradient(90deg, var(--gold), var(--coral), var(--teal));
     }
 
     .hero-copy {
       width: min(640px, calc(100% - 48px));
       margin-left: max(24px, calc((100vw - 1120px) / 2));
-      padding: 84px 0 56px;
+      padding: 112px 0 62px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      color: #fffdfa;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
       margin: 0 0 18px;
-      color: var(--teal);
+      color: #f0c66a;
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.16em;
@@ -136,16 +155,16 @@
     h1 {
       margin-bottom: 18px;
       font-family: var(--serif);
-      font-size: clamp(3.8rem, 8vw, 7.4rem);
+      font-size: clamp(3.4rem, 7.6vw, 7rem);
       font-weight: 500;
-      line-height: 0.9;
+      line-height: 0.94;
       letter-spacing: 0;
     }
 
     .lede {
       max-width: 38rem;
       margin-bottom: 28px;
-      color: #31404c;
+      color: rgba(255, 253, 250, 0.78);
       font-size: clamp(1.08rem, 1.6vw, 1.28rem);
     }
 
@@ -165,10 +184,10 @@
       padding: 11px 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--panel);
+      background: #fffdfa;
       color: var(--ink);
       font-weight: 800;
-      box-shadow: 0 10px 22px rgba(21, 33, 43, 0.07);
+      box-shadow: 0 10px 26px rgba(9, 15, 24, 0.18);
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
 
@@ -178,9 +197,9 @@
     }
 
     .button.primary {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: white;
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #1b1710;
     }
 
     .signal-grid {
@@ -193,22 +212,23 @@
     .signal {
       min-height: 102px;
       padding: 15px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
     }
 
     .signal strong {
       display: block;
       margin-bottom: 5px;
-      color: var(--navy);
+      color: #fffdfa;
       font-size: 1.48rem;
       line-height: 1;
     }
 
     .signal span {
       display: block;
-      color: var(--muted);
+      color: rgba(255, 253, 250, 0.7);
       font-size: 0.86rem;
       line-height: 1.35;
     }
@@ -217,14 +237,18 @@
       min-height: calc(100vh - 68px);
       position: relative;
       overflow: hidden;
+      margin: 34px 34px 34px 0;
+      border: 8px solid #fffdfa;
+      border-radius: var(--radius);
       background: var(--navy);
+      box-shadow: var(--shadow);
     }
 
     .portrait-wrap::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(16, 45, 67, 0.02), rgba(16, 45, 67, 0.5));
+      background: linear-gradient(180deg, rgba(16, 45, 67, 0.02), rgba(16, 45, 67, 0.24));
       pointer-events: none;
     }
 
@@ -233,7 +257,7 @@
       height: 100%;
       min-height: calc(100vh - 68px);
       object-fit: cover;
-      object-position: 52% 28%;
+      object-position: 49% 28%;
     }
 
     .portrait-caption {
@@ -248,7 +272,7 @@
       padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: var(--radius);
-      background: rgba(10, 24, 35, 0.72);
+      background: rgba(17, 25, 36, 0.82);
       color: white;
       backdrop-filter: blur(12px);
     }
@@ -260,7 +284,7 @@
 
     section {
       padding: 82px 0;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(23, 26, 31, 0.1);
     }
 
     .container {
@@ -270,7 +294,7 @@
 
     .section-head {
       display: grid;
-      grid-template-columns: 0.72fr 1fr;
+      grid-template-columns: 0.64fr 1fr;
       gap: 42px;
       align-items: start;
       margin-bottom: 34px;
@@ -279,7 +303,7 @@
     h2 {
       margin-bottom: 0;
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 4.2vw, 4rem);
+      font-size: clamp(2.1rem, 3.8vw, 3.8rem);
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0;
@@ -293,16 +317,20 @@
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
     }
 
     .card {
       min-height: 230px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      padding: 28px;
+      border: 0;
+      border-radius: 0;
       background: var(--panel);
-      box-shadow: 0 12px 30px rgba(21, 33, 43, 0.06);
+      box-shadow: none;
     }
 
     .card h3 {
@@ -317,7 +345,9 @@
     }
 
     .band {
-      background: var(--navy);
+      background:
+        linear-gradient(135deg, rgba(217, 154, 43, 0.13), rgba(8, 127, 122, 0.16)),
+        #101821;
       color: white;
     }
 
@@ -340,8 +370,8 @@
       display: grid;
       grid-template-columns: 220px 1fr;
       gap: 24px;
-      padding: 24px;
-      background: rgba(255, 255, 255, 0.055);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.065);
     }
 
     .timeline-row strong {
@@ -362,14 +392,18 @@
     .profile-layout {
       display: grid;
       grid-template-columns: 0.86fr 1.14fr;
-      gap: 24px;
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
       align-items: start;
     }
 
     .aside {
       padding: 24px;
-      border-radius: var(--radius);
-      background: var(--sage);
+      border-radius: 0;
+      background: var(--sky);
     }
 
     .aside h3 {
@@ -392,9 +426,9 @@
 
     .quote {
       padding: 34px;
-      border-radius: var(--radius);
+      border-radius: 0;
       background: var(--panel);
-      box-shadow: var(--shadow);
+      box-shadow: none;
     }
 
     .quote p {
@@ -411,8 +445,8 @@
 
     .contact {
       background:
-        linear-gradient(135deg, rgba(191, 122, 37, 0.14), rgba(15, 118, 110, 0.11)),
-        var(--paper);
+        linear-gradient(135deg, rgba(201, 78, 63, 0.12), rgba(8, 127, 122, 0.13)),
+        #f8f4eb;
     }
 
     .contact-panel {
@@ -423,7 +457,7 @@
       padding: 32px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 253, 250, 0.88);
       box-shadow: var(--shadow);
     }
 
@@ -467,17 +501,29 @@
       .hero {
         min-height: auto;
         grid-template-columns: 1fr;
+        background:
+          linear-gradient(180deg, rgba(25, 40, 60, 0.98) 0%, rgba(25, 40, 60, 0.96) 46%, rgba(219, 234, 242, 0.78) 46.2%, rgba(244, 241, 234, 0.95) 100%);
+      }
+
+      .hero::before {
+        left: 16px;
+        top: 42px;
       }
 
       .hero-copy {
         width: min(100% - 32px, 680px);
         margin: 0 auto;
-        padding: 58px 0 34px;
+        padding: 74px 0 34px;
       }
 
       .portrait-wrap,
       .portrait {
         min-height: 520px;
+      }
+
+      .portrait-wrap {
+        margin: 0 16px 34px;
+        border-width: 6px;
       }
 
       .section-head,
@@ -498,7 +544,7 @@
 
     @media (max-width: 520px) {
       h1 {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
       }
 
       section {
@@ -508,6 +554,14 @@
       .portrait-wrap,
       .portrait {
         min-height: 430px;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .button {
+        width: 100%;
       }
 
       .portrait-caption {
